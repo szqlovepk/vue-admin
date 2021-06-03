@@ -9,7 +9,8 @@
 <script lang="ts">
 import { Vue, Component } from "vue-property-decorator";
 import SubMenu from "./SubMenu.vue";
-import routes from "../../../router/config";
+// import routes from "../../../router/config";
+import routes from "@/router/config";
 @Component({
   name: "Menu",
   components: { SubMenu },
