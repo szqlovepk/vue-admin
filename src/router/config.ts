@@ -21,13 +21,12 @@ export interface IBaseRouter {
   name?: string;
   children?: IRouter[];
   redirect?: RedirectOption;
-  meta?: IRouterMeta;
+  meta?: any;
   component?: Component;
 }
 
 export interface IRouter extends IBaseRouter {
   hidden?: boolean;
-  meta?: IRouterMeta;
 }
 
 const routes: Array<IRouter> = [
@@ -61,17 +60,9 @@ const routes: Array<IRouter> = [
         hidden: true,
         component: () => import("../views/DashBoard.vue"),
         meta: {
-          title: "首页1",
+          title: "首页",
         },
       },
-      // {
-      //   path: "index2",
-      //   name: "index2",
-      //   component: () => import("../views/DashBoard.vue"),
-      //   meta: {
-      //     title: "首页2",
-      //   },
-      // },
     ],
   },
   {

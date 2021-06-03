@@ -7,10 +7,12 @@
       </el-aside>
       <el-main>
         <el-breadcrumb separator-class="el-icon-arrow-right">
-          <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
-          <el-breadcrumb-item>活动管理</el-breadcrumb-item>
-          <el-breadcrumb-item>活动列表</el-breadcrumb-item>
-          <el-breadcrumb-item>活动详情</el-breadcrumb-item>
+          <el-breadcrumb-item
+            :to="{ path: route.path }"
+            v-for="route in matchedRoutes"
+            :key="route.path"
+            >{{ route.meta.title }}</el-breadcrumb-item
+          >
         </el-breadcrumb>
         <router-view style="margin-top: 20px" />
       </el-main>
@@ -27,8 +29,13 @@ import Menu from "./Menu.vue";
   components: { Header, Menu },
 })
 export default class DashBoard extends Vue {
-  private avatar =
-    "https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png";
+  private mounted() {
+    console.log(this.$route);
+  }
+
+  private get matchedRoutes() {
+    return this.$route.matched.filter((v, i) => i > 0);
+  }
 }
 </script>
 
