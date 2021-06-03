@@ -6,7 +6,7 @@
       </div>
     </el-card>
     <el-card style="margin-top: 20px">
-      <el-table :data="tableData">
+      <el-table :data="pagedTableData">
         <el-table-column prop="date" label="日期"> </el-table-column>
         <el-table-column prop="name" label="姓名"> </el-table-column>
         <el-table-column prop="address" label="地址"> </el-table-column>
@@ -14,8 +14,8 @@
       <el-pagination
         @size-change="handleSizeChange"
         @current-change="handleCurrentChange"
-        :page-sizes="[100, 200, 300, 400]"
-        :page-size="100"
+        :page-sizes="[10, 20, 30, 40, 50]"
+        :current-page.sync="pageNo"
         layout="total, sizes, prev, pager, next, jumper"
         :total="tableData.length"
       >
@@ -32,6 +32,16 @@ import dayjs from "dayjs";
 })
 export default class DashBoard extends Vue {
   private tableData: Array<any> = [];
+  private pageNo = 1;
+  private pageSize = 10;
+
+  private get pagedTableData() {
+    return this.tableData.filter(
+      (v, i) =>
+        i >= (this.pageNo - 1) * this.pageSize &&
+        i <= this.pageNo * this.pageSize - 1
+    );
+  }
 
   private mounted() {
     let datas = [];
@@ -47,10 +57,13 @@ export default class DashBoard extends Vue {
 
   private handleSizeChange(val: number) {
     console.log(`每页 ${val} 条`);
+    this.pageSize = val;
+    this.pageNo = 1;
   }
 
   private handleCurrentChange(val: number) {
     console.log(`当前页: ${val}`);
+    this.pageNo = val;
   }
 }
 </script>
