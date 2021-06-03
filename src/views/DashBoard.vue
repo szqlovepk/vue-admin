@@ -1,9 +1,47 @@
 <template>
   <div>
     <el-card>
-      <div v-for="o in 4" :key="o" class="text item">
-        {{ "列表内容 " + o }}
-      </div>
+      <el-form :inline="true" :model="form" label-width="auto">
+        <el-row>
+          <el-col :span="6">
+            <el-form-item label="测试姓名">
+              <el-input v-model="form.item1" placeholder="item1"></el-input>
+            </el-form-item>
+          </el-col>
+          <el-col :span="6">
+            <el-form-item label="item2">
+              <el-input v-model="form.item2" placeholder="item2"></el-input>
+            </el-form-item>
+          </el-col>
+          <el-col :span="6">
+            <el-form-item label="item3">
+              <el-input v-model="form.item3" placeholder="item3"></el-input>
+            </el-form-item>
+          </el-col>
+          <el-col :span="6">
+            <el-form-item label="item4">
+              <el-input v-model="form.item4" placeholder="item4"></el-input>
+            </el-form-item>
+          </el-col>
+          <el-col :span="6">
+            <el-form-item label="item5">
+              <el-input v-model="form.item5" placeholder="item5"></el-input>
+            </el-form-item>
+          </el-col>
+          <el-col :span="6">
+            <el-form-item label="item6">
+              <el-input v-model="form.item6" placeholder="item6"></el-input>
+            </el-form-item>
+          </el-col>
+        </el-row>
+        <el-row type="flex" justify="start">
+          <el-col :span="6">
+            <el-form-item>
+              <el-button type="primary" @click="onSubmit">查询</el-button>
+            </el-form-item>
+          </el-col>
+        </el-row>
+      </el-form>
     </el-card>
     <el-card style="margin-top: 20px">
       <el-table :data="pagedTableData">
@@ -34,6 +72,7 @@ export default class DashBoard extends Vue {
   private tableData: Array<any> = [];
   private pageNo = 1;
   private pageSize = 10;
+  private form = {};
 
   private get pagedTableData() {
     return this.tableData.filter(
@@ -64,6 +103,10 @@ export default class DashBoard extends Vue {
   private handleCurrentChange(val: number) {
     console.log(`当前页: ${val}`);
     this.pageNo = val;
+  }
+
+  private onSubmit() {
+    console.log(this.form);
   }
 }
 </script>
