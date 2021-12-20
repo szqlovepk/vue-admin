@@ -2,11 +2,7 @@
   <div v-if="!menu.hidden" class="SubMenu__container">
     <el-submenu
       :index="resolvePath()"
-      v-if="
-        menu.children &&
-        menu.children.length > 0 &&
-        menu.children.some((v) => !v.hidden)
-      "
+      v-if="menu.children && menu.children.filter((v) => !v.hidden).length > 0"
     >
       <template slot="title">
         {{ menu.meta.title }}
@@ -19,7 +15,7 @@
         :basePath="resolvePath()"
       />
     </el-submenu>
-    <router-link :to="{ name: menu.name }" v-else>
+    <router-link :to="{ path: resolvePath() }" v-else>
       <el-menu-item :index="menu.redirect ? menu.redirect : resolvePath()">
         {{ menu.meta.title }}
         <!-- {{ resolvePath() }} -->
@@ -38,8 +34,10 @@ export default class SubMenu extends Vue {
   @Prop({ default: "" }) basePath!: string;
 
   private resolvePath() {
-    if (this.basePath) return this.basePath + "/" + this.menu.path;
-    else return this.basePath + this.menu.path;
+    if (this.menu.redirect) return this.menu.redirect;
+    else if (this.basePath)
+      return `${this.basePath}${this.menu.path ? "/" + this.menu.path : ""}`;
+    else return this.menu.path;
   }
 }
 </script>
