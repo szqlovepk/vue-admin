@@ -1,9 +1,11 @@
 <template>
-  <div>
-    <el-menu :default-openeds="defaultOpen" :default-active="activeMenu">
-      <SubMenu v-for="menu in routes" :key="menu.path" :menu="menu" />
-    </el-menu>
-  </div>
+  <el-menu
+    :default-openeds="defaultOpen"
+    :default-active="activeMenu"
+    style="height: 100%"
+  >
+    <SubMenu v-for="menu in routes" :key="menu.path" :menu="menu" />
+  </el-menu>
 </template>
 
 <script lang="ts">

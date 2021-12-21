@@ -1,7 +1,7 @@
 <template>
-  <el-container direction="vertical">
+  <el-container direction="vertical" style="height: 100%">
     <Header />
-    <el-container>
+    <el-container style="overflow: auto">
       <el-aside width="250px">
         <Menu />
       </el-aside>
