@@ -32,13 +32,12 @@ export interface IRouter extends IBaseRouter {
 const routes: Array<IRouter> = [
   {
     path: "/",
-    name: "Home",
-    redirect: "/dashboard",
+    redirect: "/home",
     hidden: true,
   },
   {
-    path: "/dashboard",
-    name: "dashboard",
+    path: "/home",
+    name: "home",
     component: Layout,
     meta: {
       title: "首页",
@@ -48,7 +47,7 @@ const routes: Array<IRouter> = [
         path: "",
         name: "index",
         hidden: true,
-        component: () => import("../views/DashBoard.vue"),
+        component: () => import("../views/Home.vue"),
         meta: {
           title: "首页",
         },
@@ -56,54 +55,107 @@ const routes: Array<IRouter> = [
     ],
   },
   {
-    path: "/menuOne",
-    name: "menuOne",
+    path: "/table",
+    name: "table",
     component: Layout,
     meta: {
-      title: "导航一",
+      title: "表格",
     },
     children: [
       {
-        path: "sonOne",
-        name: "sonOne",
-        component: () => import("../views/DashBoard.vue"),
+        path: "basic",
+        name: "basic",
+        component: () => import("../views/BasicTable.vue"),
         meta: {
-          title: "子页面一",
-        },
-      },
-      {
-        path: "soneTwo",
-        name: "soneTwo",
-        component: () => import("../views/DashBoard.vue"),
-        hidden: true,
-        meta: {
-          title: "子页面二",
+          title: "基础表格",
         },
       },
     ],
   },
   {
-    path: "/menuTwo",
-    name: "menuTwo",
+    path: "/form",
+    name: "form",
     component: Layout,
     meta: {
-      title: "导航二",
+      title: "表单",
     },
     children: [
       {
-        path: "sonThree",
-        name: "sonThree",
-        component: () => import("../views/DashBoard.vue"),
+        path: "basic",
+        name: "basic",
+        component: () => import("../views/About.vue"),
         meta: {
-          title: "子页面三",
+          title: "基础表单",
+        },
+      },
+    ],
+  },
+  {
+    path: "/animation",
+    name: "animation",
+    component: Layout,
+    meta: {
+      title: "动画",
+    },
+    children: [
+      {
+        path: "element",
+        name: "element",
+        component: () => import("../views/About.vue"),
+        meta: {
+          title: "element",
         },
       },
       {
-        path: "soneFour",
-        name: "soneFour",
-        component: () => import("../views/DashBoard.vue"),
+        path: "animate",
+        name: "animate",
+        component: () => import("../views/About.vue"),
         meta: {
-          title: "子页面四",
+          title: "animate",
+        },
+      },
+    ],
+  },
+  {
+    path: "/error",
+    name: "error",
+    component: Layout,
+    meta: {
+      title: "错误页面",
+    },
+    children: [
+      {
+        path: "404",
+        name: "404",
+        component: () => import("../views/About.vue"),
+        meta: {
+          title: "404",
+        },
+      },
+      {
+        path: "401",
+        name: "401",
+        component: () => import("../views/About.vue"),
+        meta: {
+          title: "401",
+        },
+      },
+    ],
+  },
+  {
+    path: "/lodash",
+    name: "lodash",
+    component: Layout,
+    meta: {
+      title: "Lodash",
+    },
+    children: [
+      {
+        path: "debounceAndThrottle",
+        name: "debounceAndThrottle",
+        component: () => import("../views/About.vue"),
+        meta: {
+          title: "防抖&节流",
         },
       },
     ],
