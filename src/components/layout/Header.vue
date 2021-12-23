@@ -16,7 +16,7 @@ export default class Header extends Vue {
 }
 </script>
 
-<style>
+<style lang="less" scoped>
 .dashboard__header {
   padding: 0 10px;
   background: #4e8de7;

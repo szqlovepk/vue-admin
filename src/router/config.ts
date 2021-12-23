@@ -101,7 +101,7 @@ const routes: Array<IBaseRouter> = [
       {
         path: "element",
         name: "element",
-        component: () => import("../views/About.vue"),
+        component: () => import("../views/animation/Element.vue"),
         meta: {
           title: "element",
         },
