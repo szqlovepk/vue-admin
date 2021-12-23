@@ -16,7 +16,7 @@
       />
     </el-submenu>
     <router-link :to="{ path: resolvePath() }" v-else>
-      <el-menu-item :index="menu.path">
+      <el-menu-item :index="resolvePath()">
         {{ getMenuTitle(menu) }}
         <!-- {{ resolvePath() }} -->
       </el-menu-item>

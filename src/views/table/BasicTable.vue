@@ -66,9 +66,9 @@
 import { Vue, Component } from "vue-property-decorator";
 import dayjs from "dayjs";
 @Component({
-  name: "DashBoard",
+  name: "BasicTable",
 })
-export default class DashBoard extends Vue {
+export default class BasicTable extends Vue {
   private tableData: Array<any> = [];
   private pageNo = 1;
   private pageSize = 10;

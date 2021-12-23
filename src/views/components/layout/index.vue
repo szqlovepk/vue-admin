@@ -40,10 +40,10 @@ import Header from "./Header.vue";
 import Menu from "./Menu.vue";
 import { IBaseRouter } from "@/router/config";
 @Component({
-  name: "DashBoard",
+  name: "Layout",
   components: { Header, Menu },
 })
-export default class DashBoard extends Vue {
+export default class Layout extends Vue {
   private mounted() {
     console.log(this.$route);
   }

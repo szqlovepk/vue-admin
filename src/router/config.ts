@@ -63,7 +63,7 @@ const routes: Array<IBaseRouter> = [
       {
         path: "basic",
         name: "basic",
-        component: () => import("../views/BasicTable.vue"),
+        component: () => import("../views/table/BasicTable.vue"),
         meta: {
           title: "基础表格",
         },
@@ -80,9 +80,9 @@ const routes: Array<IBaseRouter> = [
     },
     children: [
       {
-        path: "basic",
-        name: "basic",
-        component: () => import("../views/About.vue"),
+        path: "basicForm",
+        name: "basicForm",
+        component: () => import("../views/form/BasicForm.vue"),
         meta: {
           title: "基础表单",
         },
