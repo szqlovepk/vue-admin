@@ -1,6 +1,6 @@
 <template>
   <el-header class="dashboard__header">
-    <img class="dashboard__logo" src="../../../assets/logo.png" />
+    <img class="dashboard__logo" src="@/assets/logo.png" />
     <el-avatar :size="30" :src="avatar" />
   </el-header>
 </template>

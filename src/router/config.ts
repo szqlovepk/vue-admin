@@ -1,4 +1,4 @@
-import { Layout } from "../views/components";
+import { Layout } from "@/components";
 import Vue, { ComponentOptions, AsyncComponent } from "vue";
 import { RedirectOption } from "vue-router";
 
