@@ -6,13 +6,27 @@
         <Menu />
       </el-aside>
       <el-main>
-        <el-breadcrumb separator-class="el-icon-arrow-right">
-          <el-breadcrumb-item
-            :to="{ path: route.path }"
-            v-for="route in matchedRoutes"
-            :key="route.path"
-            >{{ route.meta.title }}</el-breadcrumb-item
-          >
+        <el-breadcrumb
+          separator-class="el-icon-arrow-right"
+          v-if="showBreadcrumb"
+        >
+          <template v-for="route in matchedRoutes">
+            <el-breadcrumb-item
+              v-if="route.meta && route.meta.breadcrumbTo === false"
+              :key="route.path"
+            >
+              {{ route.meta.title }}
+              <!-- {{ route.path }} -->
+            </el-breadcrumb-item>
+            <el-breadcrumb-item
+              v-else
+              :key="route.path"
+              :to="{ path: getPath(route) }"
+            >
+              {{ route.meta.title }}
+              <!-- {{ route.path }} -->
+            </el-breadcrumb-item>
+          </template>
         </el-breadcrumb>
         <router-view style="margin-top: 20px" />
       </el-main>
@@ -24,6 +38,7 @@
 import { Vue, Component } from "vue-property-decorator";
 import Header from "./Header.vue";
 import Menu from "./Menu.vue";
+import { IBaseRouter } from "@/router/config";
 @Component({
   name: "DashBoard",
   components: { Header, Menu },
@@ -33,8 +48,18 @@ export default class DashBoard extends Vue {
     console.log(this.$route);
   }
 
+  private get showBreadcrumb() {
+    return this.$route?.meta?.breadcrumbAll !== false;
+  }
+
+  private getPath(route: IBaseRouter) {
+    return route?.meta?.breadcrumbTo === false ? null : route?.path;
+  }
+
   private get matchedRoutes() {
-    return this.$route.matched.filter((v, i) => i > 0);
+    return this.$route.matched?.filter(
+      (v) => v.meta?.title && v?.meta?.breadcrumb !== false
+    );
   }
 }
 </script>

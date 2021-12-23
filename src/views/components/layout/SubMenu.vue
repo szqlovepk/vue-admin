@@ -5,7 +5,7 @@
       v-if="menu.children && menu.children.filter((v) => !v.hidden).length > 0"
     >
       <template slot="title">
-        {{ menu.meta.title }}
+        {{ getMenuTitle(menu) }}
         <!-- {{ resolvePath() }} -->
       </template>
       <SubMenu
@@ -16,8 +16,8 @@
       />
     </el-submenu>
     <router-link :to="{ path: resolvePath() }" v-else>
-      <el-menu-item :index="menu.redirect ? menu.redirect : resolvePath()">
-        {{ menu.meta.title }}
+      <el-menu-item :index="menu.path">
+        {{ getMenuTitle(menu) }}
         <!-- {{ resolvePath() }} -->
       </el-menu-item>
     </router-link>
@@ -26,6 +26,8 @@
 
 <script lang="ts">
 import { Vue, Component, Prop } from "vue-property-decorator";
+import { IBaseRouter } from "@/router/config";
+import path from "path";
 @Component({
   name: "SubMenu",
 })
@@ -33,11 +35,17 @@ export default class SubMenu extends Vue {
   @Prop() menu!: any;
   @Prop({ default: "" }) basePath!: string;
 
+  private getMenuTitle(menu: IBaseRouter) {
+    return menu?.meta?.title;
+  }
+
   private resolvePath() {
-    if (this.menu.redirect) return this.menu.redirect;
-    else if (this.basePath)
-      return `${this.basePath}${this.menu.path ? "/" + this.menu.path : ""}`;
-    else return this.menu.path;
+    // 如果子路由正好等于一个并且有重定向配置 就会默认将重定向的路由作为根路由显示在侧边栏中
+    if (this.menu.redirect && this.menu?.children?.length === 1)
+      return this.menu.redirect;
+    else if (this.basePath) {
+      return path.resolve(this.basePath, this.menu.path);
+    } else return this.menu.path;
   }
 }
 </script>
