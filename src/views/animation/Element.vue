@@ -48,7 +48,7 @@
         <h3>example:</h3>
         <div class="example__container">
           <transition name="el-zoom-in-top">
-            <div class="modal" v-if="modalVisible">
+            <div class="modal" v-show="modalVisible">
               <div class="center">
                 我是弹层<i class="el-icon-error" @click="close" />
               </div>
