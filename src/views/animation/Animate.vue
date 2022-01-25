@@ -90,6 +90,12 @@ export default class Element extends Vue {
 
 <style lang="less" scoped>
 .animate__container {
+  /* Only this element will work */
+  // .my-element {
+  //   --animate-duration: 5s;
+  //   --animate-delay: 5s;
+  //   --animate-repeat: 4;
+  // }
   .transition-box {
     margin-bottom: 10px;
     width: 200px;
