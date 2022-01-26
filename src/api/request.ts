@@ -40,8 +40,8 @@ export const createAxiosByinterceptors = (
     },
     function (error) {
       console.log("response:", error.response);
-      //console.log("config:", error.config);
-      //console.log("request:", error.request);
+      // console.log("config:", error.config);
+      // console.log("request:", error.request);
       if (error.response) {
         if (error.response.status === 401) {
           // todo: 跳转登录页面

@@ -5,4 +5,4 @@ const request = createAxiosByinterceptors({
 });
 
 export const appList = (params: any): Promise<any> =>
-  request.get("/app", { params });
+  request.get("/app", { params, loading: true });

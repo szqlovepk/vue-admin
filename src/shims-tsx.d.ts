@@ -1,4 +1,5 @@
 import Vue, { VNode } from "vue";
+import { AxiosRequestConfig } from "axios";
 
 declare global {
   namespace JSX {
@@ -15,5 +16,12 @@ declare global {
 declare module "vue/types/vue" {
   interface Vue {
     [key: string]: any;
+  }
+}
+
+declare module "axios" {
+  export interface AxiosRequestConfig {
+    // [自定义属性声明]
+    loading?: boolean;
   }
 }
