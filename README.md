@@ -4,7 +4,7 @@
 
 ### 前言
 
-> vue 作为国内前端最常用的 js 框架之一，在处理复杂交互的单页应用中对国内码农很友好，文档比较详细。对于后台管理系统网上开源案例比较少，所以利用空余时间集成了一个常用版本出来(没有 vue 基础的同学可以先学习 [vue](https://cn.vuejs.org/) 的基础知识)
+> vue 作为国内前端最常用的 js 框架之一，在处理复杂交互的单页应用中对国内码农很友好，文档比较详细。对于后台管理系统网上开源案例比较少，所以利用空余时间记成了一个常用版本出来(没有 vue 基础的同学可以先学习 [vue](https://cn.vuejs.org/) 的基础知识)
 
 ### 依赖模块
 
@@ -16,3 +16,4 @@
 - [dayjs](https://dayjs.fenxianglu.cn/) 一个极简的 JavaScript 库，可以为现代浏览器解析、验证、操作和显示日期和时间
 - [element-ui](https://element.eleme.io/#/zh-CN) Vue 2.0 的桌面端组件库
 - [vuex](https://note.youdao.com/) Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式
+- [axios](http://www.axios-js.com/zh-cn/) 易用、简洁且高效的 http 库

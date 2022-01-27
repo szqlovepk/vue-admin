@@ -1,5 +1,6 @@
 import axios, { AxiosInstance, AxiosRequestConfig } from "axios";
 import { Message } from "element-ui";
+import { jumpLogin } from "@/utils";
 
 export const createAxiosByinterceptors = (
   config?: AxiosRequestConfig
@@ -33,7 +34,9 @@ export const createAxiosByinterceptors = (
       // 对响应数据做点什么
       const { code, data, message } = response.data;
       if (code === 200) return data;
-      else {
+      else if (code === 401) {
+        jumpLogin();
+      } else {
         Message.error(message);
         return Promise.reject(response.data);
       }
@@ -44,7 +47,7 @@ export const createAxiosByinterceptors = (
       // console.log("request:", error.request);
       if (error.response) {
         if (error.response.status === 401) {
-          // todo: 跳转登录页面
+          jumpLogin();
         }
         Message.error(error?.response?.data?.message || "服务端异常");
       }
