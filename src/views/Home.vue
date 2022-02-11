@@ -8,7 +8,7 @@
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 import HelloWorld from "@/components/HelloWorld.vue"; // @ is an alias to /src
-import { appList } from "@/api";
+import { appList, pageMenus } from "@/api";
 
 @Component({
   name: "Home",
@@ -18,6 +18,9 @@ import { appList } from "@/api";
 })
 export default class Home extends Vue {
   private mounted() {
+    pageMenus().then((res) => {
+      console.log(res);
+    });
     appList({ page: 1, pageSize: 100 }).then((res) => {
       console.log(res);
     });

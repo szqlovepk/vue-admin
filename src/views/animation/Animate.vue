@@ -46,8 +46,8 @@ import "animate.css";
   name: "Element",
 })
 export default class Element extends Vue {
+  //https://animate.style/ 可继续扩充查看实例
   private animate = [
-    //https://animate.style/ 可继续扩充查看实例
     "animate__bounce",
     "animate__flash",
     "animate__pulse",
