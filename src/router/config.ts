@@ -128,17 +128,25 @@ const routes: Array<IBaseRouter> = [
       {
         path: "404",
         name: "404",
-        component: () => import("../views/About.vue"),
+        component: () => import("../views/error/NotFoundPage.vue"),
         meta: {
           title: "404",
         },
       },
       {
-        path: "401",
-        name: "401",
-        component: () => import("../views/About.vue"),
+        path: "403",
+        name: "403",
+        component: () => import("../views/error/ForbiddenPage.vue"),
         meta: {
-          title: "401",
+          title: "403",
+        },
+      },
+      {
+        path: "500",
+        name: "500",
+        component: () => import("../views/error/InternalServerErrorPage.vue"),
+        meta: {
+          title: "500",
         },
       },
     ],
