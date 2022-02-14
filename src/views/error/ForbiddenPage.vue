@@ -1,11 +1,11 @@
 <template>
   <div>
     <el-result
-      title="401"
+      title="403"
       subTitle="Sorry, you are not authorized to access this page."
     >
       <template slot="icon">
-        <svg style="width: 251px; height: 294px">
+        <svg style="width: 251; height: 294">
           <defs><path d="M0 .387h251.772v251.772H0z"></path></defs>
           <g fill="none" fill-rule="evenodd">
             <g transform="translate(0 .012)">
