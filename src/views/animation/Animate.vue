@@ -2,6 +2,7 @@
   <div class="animate__container">
     <el-row>
       <el-col :span="14">
+        <h3>鼠标移入查看效果</h3>
         <div style="display: flex; flex-wrap: wrap">
           <div
             v-for="key in animate"
@@ -21,7 +22,7 @@
 
       <el-col :span="10">
         <h3>example:</h3>
-        <div class="example__container">
+        <div class="example__container background">
           <div
             :class="`modal animate__animated ${
               modalIsIn ? 'animate__slideInDown' : 'animate__slideOutUp'
@@ -97,6 +98,7 @@ export default class Element extends Vue {
   //   --animate-repeat: 4;
   // }
   .transition-box {
+    cursor: pointer;
     margin-bottom: 10px;
     width: 200px;
     height: 100px;

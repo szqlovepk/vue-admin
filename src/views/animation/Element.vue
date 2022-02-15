@@ -2,6 +2,7 @@
   <div class="element__container">
     <el-row>
       <el-col :span="14">
+        <h3>鼠标点击查看效果</h3>
         <h3>fade 淡入淡出</h3>
         <div style="display: flex">
           <transition name="el-fade-in-linear">
@@ -46,7 +47,7 @@
 
       <el-col :span="10">
         <h3>example:</h3>
-        <div class="example__container">
+        <div class="example__container background">
           <transition name="el-zoom-in-top">
             <div class="modal" v-show="modalVisible">
               <div class="center">
@@ -104,6 +105,7 @@ export default class Element extends Vue {
 <style lang="less" scoped>
 .element__container {
   .transition-box {
+    cursor: pointer;
     margin-bottom: 10px;
     width: 200px;
     height: 100px;
