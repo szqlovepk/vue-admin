@@ -211,6 +211,11 @@ const routes: Array<IBaseRouter> = [
       },
     ],
   },
+  {
+    path: "*",
+    redirect: "/error/404",
+    hidden: true,
+  },
 ];
 
 export default routes;
