@@ -17,3 +17,4 @@
 - [element-ui](https://element.eleme.io/#/zh-CN) Vue 2.0 的桌面端组件库
 - [vuex](https://note.youdao.com/) Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式
 - [axios](http://www.axios-js.com/zh-cn/) 易用、简洁且高效的 http 库
+- [lodash](https://www.lodashjs.com/) 一个一致性、模块化、高性能的 JavaScript 实用工具库。
