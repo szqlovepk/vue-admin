@@ -9,6 +9,7 @@
     "inspect": "vue-cli-service inspect"
   },
   "dependencies": {
+    "@types/lodash": "^4.14.178",
     "animate.css": "^4.1.1",
     "axios": "^0.25.0",
     "core-js": "^3.6.5",

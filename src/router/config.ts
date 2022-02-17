@@ -163,7 +163,7 @@ const routes: Array<IBaseRouter> = [
       {
         path: "debounceAndThrottle",
         name: "debounceAndThrottle",
-        component: () => import("../views/About.vue"),
+        component: () => import("../views/lodash/DebounceAndThrottle.vue"),
         meta: {
           title: "防抖&节流",
         },
