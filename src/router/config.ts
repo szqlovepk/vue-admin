@@ -10,7 +10,7 @@ type Component =
 
 interface IMeta {
   title?: string; // 设置该路由在侧边栏和面包屑中展示的名字 不设置时不展示
-  icon?: string; // 设置该路由的图标 element-ui的icon
+  icon?: string; // 设置该路由在左侧菜单展示的图标 element-ui的icon
   breadcrumbAll?: boolean; //(默认 true)如果设置为false，则整个面包屑不会显示 此时可以自己在页面中写自定义的面包屑
   breadcrumb?: boolean; // (默认 true)如果设置为false，该路由则不会在breadcrumb面包屑中显示
   breadcrumbTo?: boolean; // (默认 true)该路由对应的面包屑是否可以点击
@@ -40,6 +40,7 @@ const routes: Array<IBaseRouter> = [
     redirect: "/home/index",
     meta: {
       title: "首页",
+      icon: "el-icon-s-home",
     },
     children: [
       {
@@ -47,6 +48,9 @@ const routes: Array<IBaseRouter> = [
         name: "index",
         hidden: true,
         component: () => import("../views/Home.vue"),
+        // meta: {
+        //   title: "首页", // 不需要配置 否则面包屑会展示
+        // },
       },
     ],
   },
@@ -57,6 +61,7 @@ const routes: Array<IBaseRouter> = [
     redirect: "/table/basic",
     meta: {
       title: "表格",
+      icon: "el-icon-s-grid",
     },
     children: [
       {
@@ -76,6 +81,7 @@ const routes: Array<IBaseRouter> = [
     redirect: "/form/basicForm",
     meta: {
       title: "表单",
+      icon: "el-icon-tickets",
     },
     children: [
       {
@@ -95,6 +101,7 @@ const routes: Array<IBaseRouter> = [
     redirect: "/animation/element",
     meta: {
       title: "动画",
+      icon: "el-icon-data-line",
     },
     children: [
       {
@@ -121,6 +128,7 @@ const routes: Array<IBaseRouter> = [
     component: Layout,
     meta: {
       title: "错误页面",
+      icon: "el-icon-warning-outline",
     },
     children: [
       {
@@ -159,6 +167,7 @@ const routes: Array<IBaseRouter> = [
     redirect: "/lodash/debounceAndThrottle",
     meta: {
       title: "Lodash",
+      icon: "el-icon-notebook-2",
     },
     children: [
       {
@@ -177,38 +186,63 @@ const routes: Array<IBaseRouter> = [
     component: Layout,
     redirect: "/router/sub1",
     meta: {
-      title: "路由-左侧菜单-面包屑",
+      title: "路由嵌套",
+      icon: "el-icon-s-operation",
     },
     children: [
       {
         path: "sub1",
         name: "sub1",
         component: () => import("../views/router/Sub1.vue"),
-        redirect: "/router/sub1/sub2",
+        redirect: "/router/sub1/sub1-1",
         meta: {
           title: "sub1",
         },
         children: [
           {
-            path: "sub2",
-            name: "sub2",
-            component: () => import("../views/router/Sub2.vue"),
-            redirect: "/router/sub1/sub2/sub3",
+            path: "sub1-1",
+            name: "sub1-1",
+            component: () => import("../views/router/Sub1-1.vue"),
+            redirect: "/router/sub1/sub1-1/sub1-1-1",
             meta: {
-              title: "sub2",
+              title: "sub1-1",
             },
             children: [
               {
-                path: "sub3",
-                name: "sub3",
-                component: () => import("../views/router/Sub3.vue"),
+                path: "sub1-1-1",
+                name: "sub1-1-1",
+                component: () => import("../views/router/Sub1-1-1.vue"),
                 meta: {
-                  title: "sub3",
+                  title: "sub1-1-1",
+                },
+              },
+              {
+                path: "sub1-1-2",
+                name: "sub1-1-2",
+                component: () => import("../views/router/Sub1-1-2.vue"),
+                meta: {
+                  title: "sub1-1-2",
                 },
               },
             ],
           },
+          {
+            path: "sub1-2",
+            name: "sub1-2",
+            component: () => import("../views/router/Sub1-2.vue"),
+            meta: {
+              title: "sub1-2",
+            },
+          },
         ],
+      },
+      {
+        path: "sub2",
+        name: "sub2",
+        component: () => import("../views/router/Sub2.vue"),
+        meta: {
+          title: "sub2",
+        },
       },
     ],
   },

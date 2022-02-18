@@ -5,6 +5,7 @@
       v-if="menu.children && menu.children.filter((v) => !v.hidden).length > 0"
     >
       <template slot="title">
+        <i :class="menu.meta.icon" />
         {{ getMenuTitle(menu) }}
         <!-- {{ resolvePath() }} -->
       </template>
@@ -17,6 +18,7 @@
     </el-submenu>
     <router-link :to="{ path: resolvePath() }" v-else>
       <el-menu-item :index="resolvePath()">
+        <i :class="menu.meta.icon" />
         {{ getMenuTitle(menu) }}
         <!-- {{ resolvePath() }} -->
       </el-menu-item>
@@ -40,11 +42,11 @@ export default class SubMenu extends Vue {
   }
 
   private resolvePath() {
-    // 如果子路由正好等于一个并且有重定向配置 就会默认将重定向的路由作为根路由显示在侧边栏中
+    // 如果子路由正好是一个隐藏了的并且有重定向配置 就会默认将重定向的路由作为根路由显示在侧边栏中
     if (
       this.menu.redirect &&
       this.menu?.children?.length === 1 &&
-      !this.menu?.children?.[0].meta?.title
+      this.menu?.children?.[0].hidden
     )
       return this.menu.redirect;
     else return path.resolve(this.basePath, this.menu.path);
@@ -56,6 +58,10 @@ export default class SubMenu extends Vue {
 .SubMenu__container {
   a {
     text-decoration: none;
+  }
+  .el-menu-item {
+    display: flex;
+    align-items: center;
   }
 }
 </style>
