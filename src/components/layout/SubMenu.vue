@@ -41,11 +41,13 @@ export default class SubMenu extends Vue {
 
   private resolvePath() {
     // 如果子路由正好等于一个并且有重定向配置 就会默认将重定向的路由作为根路由显示在侧边栏中
-    if (this.menu.redirect && this.menu?.children?.length === 1)
+    if (
+      this.menu.redirect &&
+      this.menu?.children?.length === 1 &&
+      !this.menu?.children?.[0].meta?.title
+    )
       return this.menu.redirect;
-    else if (this.basePath) {
-      return path.resolve(this.basePath, this.menu.path);
-    } else return this.menu.path;
+    else return path.resolve(this.basePath, this.menu.path);
   }
 }
 </script>

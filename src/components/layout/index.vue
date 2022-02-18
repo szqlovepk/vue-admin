@@ -10,9 +10,12 @@
           separator-class="el-icon-arrow-right"
           v-if="showBreadcrumb"
         >
-          <template v-for="route in matchedRoutes">
+          <template v-for="(route, index) in matchedRoutes">
             <el-breadcrumb-item
-              v-if="route.meta && route.meta.breadcrumbTo === false"
+              v-if="
+                (route.meta && route.meta.breadcrumbTo === false) ||
+                index === matchedRoutes.length - 1
+              "
               :key="route.path"
             >
               {{ route.meta.title }}
@@ -21,7 +24,7 @@
             <el-breadcrumb-item
               v-else
               :key="route.path"
-              :to="{ path: getPath(route) }"
+              :to="{ path: route.path }"
             >
               {{ route.meta.title }}
               <!-- {{ route.path }} -->
@@ -38,7 +41,7 @@
 import { Vue, Component } from "vue-property-decorator";
 import Header from "./Header.vue";
 import Menu from "./Menu.vue";
-import { IBaseRouter } from "@/router/config";
+// import { IBaseRouter } from "@/router/config";
 @Component({
   name: "Layout",
   components: { Header, Menu },
@@ -52,9 +55,9 @@ export default class Layout extends Vue {
     return this.$route?.meta?.breadcrumbAll !== false;
   }
 
-  private getPath(route: IBaseRouter) {
-    return route?.meta?.breadcrumbTo === false ? null : route?.path;
-  }
+  // private getPath(route: IBaseRouter) {
+  //   return route?.meta?.breadcrumbTo === false ? null : route?.path;
+  // }
 
   private get matchedRoutes() {
     return this.$route.matched?.filter(

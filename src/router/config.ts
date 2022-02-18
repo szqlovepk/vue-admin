@@ -12,8 +12,8 @@ interface IMeta {
   title?: string; // 设置该路由在侧边栏和面包屑中展示的名字 不设置时不展示
   icon?: string; // 设置该路由的图标 element-ui的icon
   breadcrumbAll?: boolean; //(默认 true)如果设置为false，则整个面包屑不会显示 此时可以自己在页面中写自定义的面包屑
-  breadcrumb?: boolean; // (默认 true)如果设置为false，则不会在breadcrumb面包屑中显示
-  breadcrumbTo?: boolean; // (默认 true)面包屑是否可以点击
+  breadcrumb?: boolean; // (默认 true)如果设置为false，该路由则不会在breadcrumb面包屑中显示
+  breadcrumbTo?: boolean; // (默认 true)该路由对应的面包屑是否可以点击
   activeMenu?: string; // 指定要高亮的左侧边栏的菜单 在跳转菜单的子页面但是想高亮左侧边栏时非常有用
 }
 
@@ -40,7 +40,6 @@ const routes: Array<IBaseRouter> = [
     redirect: "/home/index",
     meta: {
       title: "首页",
-      breadcrumbTo: false,
     },
     children: [
       {
@@ -55,9 +54,9 @@ const routes: Array<IBaseRouter> = [
     path: "/table",
     name: "table",
     component: Layout,
+    redirect: "/table/basic",
     meta: {
       title: "表格",
-      breadcrumbTo: false,
     },
     children: [
       {
@@ -74,9 +73,9 @@ const routes: Array<IBaseRouter> = [
     path: "/form",
     name: "form",
     component: Layout,
+    redirect: "/form/basicForm",
     meta: {
       title: "表单",
-      breadcrumbTo: false,
     },
     children: [
       {
@@ -93,9 +92,9 @@ const routes: Array<IBaseRouter> = [
     path: "/animation",
     name: "animation",
     component: Layout,
+    redirect: "/animation/element",
     meta: {
       title: "动画",
-      breadcrumbTo: false,
     },
     children: [
       {
@@ -122,7 +121,6 @@ const routes: Array<IBaseRouter> = [
     component: Layout,
     meta: {
       title: "错误页面",
-      breadcrumbTo: false,
     },
     children: [
       {
@@ -131,6 +129,7 @@ const routes: Array<IBaseRouter> = [
         component: () => import("../views/error/NotFoundPage.vue"),
         meta: {
           title: "404",
+          breadcrumbAll: false,
         },
       },
       {
@@ -139,6 +138,7 @@ const routes: Array<IBaseRouter> = [
         component: () => import("../views/error/ForbiddenPage.vue"),
         meta: {
           title: "403",
+          breadcrumbAll: false,
         },
       },
       {
@@ -147,6 +147,7 @@ const routes: Array<IBaseRouter> = [
         component: () => import("../views/error/InternalServerErrorPage.vue"),
         meta: {
           title: "500",
+          breadcrumbAll: false,
         },
       },
     ],
@@ -155,9 +156,9 @@ const routes: Array<IBaseRouter> = [
     path: "/lodash",
     name: "lodash",
     component: Layout,
+    redirect: "/lodash/debounceAndThrottle",
     meta: {
       title: "Lodash",
-      breadcrumbTo: false,
     },
     children: [
       {
@@ -174,27 +175,27 @@ const routes: Array<IBaseRouter> = [
     path: "/router",
     name: "router",
     component: Layout,
+    redirect: "/router/sub1",
     meta: {
       title: "路由-左侧菜单-面包屑",
-      breadcrumbTo: false,
     },
     children: [
       {
         path: "sub1",
         name: "sub1",
         component: () => import("../views/router/Sub1.vue"),
+        redirect: "/router/sub1/sub2",
         meta: {
           title: "sub1",
-          breadcrumbTo: false,
         },
         children: [
           {
             path: "sub2",
             name: "sub2",
             component: () => import("../views/router/Sub2.vue"),
+            redirect: "/router/sub1/sub2/sub3",
             meta: {
               title: "sub2",
-              breadcrumbTo: false,
             },
             children: [
               {
