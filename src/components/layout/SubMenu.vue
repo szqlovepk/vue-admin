@@ -59,7 +59,8 @@ export default class SubMenu extends Vue {
   a {
     text-decoration: none;
   }
-  .el-menu-item {
+  /deep/ .el-submenu__title,
+  /deep/ .el-menu-item {
     display: flex;
     align-items: center;
   }
