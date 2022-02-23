@@ -5,11 +5,13 @@ import store from "./store";
 import ElementUI from "element-ui";
 import "element-ui/lib/theme-chalk/index.css";
 import "./index.less";
+import * as echarts from "echarts";
 // import locale from "element-ui/lib/locale/lang/en";
 
 // 国际化设置
 // Vue.use(ElementUI, { locale });
 Vue.use(ElementUI);
+Vue.prototype.$echarts = echarts;
 Vue.config.productionTip = false;
 
 new Vue({
