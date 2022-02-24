@@ -1,5 +1,5 @@
 <template>
-  <div id="main" :style="{ width, height }"></div>
+  <div ref="echartsContainer" :style="{ width, height }"></div>
 </template>
 
 <script>
@@ -7,14 +7,17 @@ export default {
   props: {
     width: String,
     height: String,
-    title: Number,
+    title: {
+      type: String,
+      required: false,
+    },
   },
   mounted() {
     this.draw();
   },
   methods: {
     draw() {
-      const myChart = this.$echarts.init(document.getElementById("main"));
+      const myChart = this.$echarts.init(this.$refs.echartsContainer);
       // 绘制图表
       myChart.setOption({
         title: {

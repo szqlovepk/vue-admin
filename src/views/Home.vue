@@ -10,7 +10,7 @@
     <el-row :gutter="10">
       <el-col :xs="24" :sm="24" :md="12" :lg="12" :xl="12" class="card__second">
         <el-card class="box-card">
-          <Bar width="100%" height="500px" :title="柱状图" />
+          <Bar width="100%" height="500px" />
         </el-card>
       </el-col>
       <el-col :xs="24" :sm="24" :md="12" :lg="12" :xl="12" class="card__second">
