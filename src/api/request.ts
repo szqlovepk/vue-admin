@@ -81,8 +81,8 @@ export const createAxiosByinterceptors = (
         if (error.response.status === 401) {
           jumpLogin();
         }
-        Message.error(error?.response?.data?.message || "服务端异常");
       }
+      Message.error(error?.response?.data?.message || "服务端异常");
 
       // 对响应错误做点什么
       return Promise.reject(error);

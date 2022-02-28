@@ -12,14 +12,23 @@ export default {
       required: false,
     },
   },
+  data() {
+    return {
+      chart: null,
+    };
+  },
   mounted() {
     this.draw();
+    window.addEventListener("resize", this.resize);
+  },
+  beforeDestroy() {
+    window.removeEventListener("resize", this.resize);
   },
   methods: {
     draw() {
-      const myChart = this.$echarts.init(this.$refs.echartsContainer);
+      this.chart = this.$echarts.init(this.$refs.echartsContainer);
       // 绘制图表
-      myChart.setOption({
+      this.chart.setOption({
         title: {
           text: this.title,
         },
@@ -36,9 +45,12 @@ export default {
           },
         ],
       });
-      window.onresize = function () {
-        myChart.resize({});
-      };
+    },
+    /**
+     * 当窗口缩放时，echart动态调整自身大小
+     */
+    resize() {
+      this?.chart.resize();
     },
   },
 };
