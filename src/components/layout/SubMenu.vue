@@ -5,7 +5,7 @@
       v-if="menu.children && menu.children.filter((v) => !v.hidden).length > 0"
     >
       <template slot="title">
-        <i :class="menu.meta.icon" />
+        <i :class="icon" />
         {{ getMenuTitle(menu) }}
         <!-- {{ resolvePath() }} -->
       </template>
@@ -18,7 +18,7 @@
     </el-submenu>
     <router-link :to="{ path: resolvePath() }" v-else>
       <el-menu-item :index="resolvePath()">
-        <i :class="menu.meta.icon" />
+        <i :class="icon" />
         {{ getMenuTitle(menu) }}
         <!-- {{ resolvePath() }} -->
       </el-menu-item>
@@ -37,11 +37,16 @@ export default class SubMenu extends Vue {
   @Prop() menu!: any;
   @Prop({ default: "" }) basePath!: string;
 
+  get icon() {
+    return this.menu?.meta?.icon;
+  }
+
   private getMenuTitle(menu: IBaseRouter) {
     return menu?.meta?.title;
   }
 
   private resolvePath() {
+    //todo: 优化单个菜单又同时有子页面的情况
     // 如果子路由正好是一个隐藏了的并且有重定向配置 就会默认将重定向的路由作为根路由显示在侧边栏中
     if (
       this.menu.redirect &&

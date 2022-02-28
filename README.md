@@ -11,10 +11,13 @@
 > 项目基于 [vue-cli4.x](https://cli.vuejs.org/zh/) 脚手架生成，主要还是列出新添加的依赖包和相关的文档
 
 - [vue-router](https://router.vuejs.org/zh/) Vue.js 官方的路由管理器。
-
+- [vuex](https://vuex.vuejs.org/zh/) Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式
 - [animate.css](https://animate.style/) 一款好用的 css 动画库
 - [dayjs](https://dayjs.fenxianglu.cn/) 一个极简的 JavaScript 库，可以为现代浏览器解析、验证、操作和显示日期和时间
 - [element-ui](https://element.eleme.io/#/zh-CN) Vue 2.0 的桌面端组件库
-- [vuex](https://note.youdao.com/) Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式
+
 - [axios](http://www.axios-js.com/zh-cn/) 易用、简洁且高效的 http 库
 - [lodash](https://www.lodashjs.com/) 一个一致性、模块化、高性能的 JavaScript 实用工具库。
+- [echarts](https://echarts.apache.org/zh/index.html) 一个基于 JavaScript 的开源可视化图表库
+- [vue-class-component](https://github.com/vuejs/vue-class-component) vue 对 typescript 支持的装饰器(库)
+- [vue-property-decorator](https://github.com/kaorun343/vue-property-decorator) vue-property-decorator 深度依赖了 vue-class-component 拓展出了很多操作符。正常开发的时候你只需要使用 vue-property-decorator 中提供的操作符即可
