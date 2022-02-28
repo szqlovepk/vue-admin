@@ -10,11 +10,13 @@
     <el-row :gutter="10">
       <el-col :xs="24" :sm="24" :md="12" :lg="12" :xl="12" class="card__second">
         <el-card class="box-card">
-          <Bar width="100%" height="500px" />
+          <Pie width="100%" height="300px" title="饼图" />
         </el-card>
       </el-col>
       <el-col :xs="24" :sm="24" :md="12" :lg="12" :xl="12" class="card__second">
-        <el-card class="box-card"> xxxx </el-card>
+        <el-card class="box-card">
+          <ELine width="100%" height="300px" title="折线图" />
+        </el-card>
       </el-col>
     </el-row>
   </div>
@@ -24,13 +26,15 @@
 import { Component, Vue } from "vue-property-decorator";
 import HelloWorld from "@/components/HelloWorld.vue"; // @ is an alias to /src
 import { appList, pageMenus } from "@/api";
-import { Bar } from "@/components";
+import { Bar, Pie, ELine } from "@/components";
 
 @Component({
   name: "Home",
   components: {
     HelloWorld,
     Bar,
+    Pie,
+    ELine,
   },
 })
 export default class Home extends Vue {
