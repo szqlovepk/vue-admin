@@ -25,7 +25,7 @@
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 import HelloWorld from "@/components/HelloWorld.vue"; // @ is an alias to /src
-import { appList, pageMenus } from "@/api";
+// import { appList, pageMenus, exportGoods } from "@/api";
 import { Bar, Pie, ELine } from "@/components";
 
 @Component({
@@ -39,12 +39,26 @@ import { Bar, Pie, ELine } from "@/components";
 })
 export default class Home extends Vue {
   private mounted() {
-    pageMenus().then((res) => {
-      console.log(res);
-    });
-    appList({ page: 1, pageSize: 100 }).then((res) => {
-      console.log(res);
-    });
+    // pageMenus({ appId: 107, versionId: 82 }).then((res) => {
+    //   console.log(res);
+    // });
+    // appList({ page: 1, pageSize: 100 }).then((res) => {
+    //   console.log(res);
+    // });
+    // const formData = new FormData();
+    // formData.append("goodsId", "361283163160578,361274405355522");
+    // exportGoods(formData)
+    //   .then(
+    //     (res) => {
+    //       console.log("res:", res);
+    //     },
+    //     (rej) => {
+    //       console.log("rej:", rej);
+    //     }
+    //   )
+    //   .catch((e) => {
+    //     console.log("catch:", e);
+    //   });
   }
 }
 </script>

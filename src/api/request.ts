@@ -3,6 +3,7 @@ import { Message } from "element-ui";
 import { jumpLogin } from "@/utils";
 import { Loading } from "element-ui";
 import { ElLoadingComponent } from "element-ui/types/loading";
+import { downloadFile } from "@/utils";
 
 let loadingInstance: ElLoadingComponent | null = null;
 let requestNum = 0;
@@ -41,9 +42,9 @@ export const createAxiosByinterceptors = (
   // 添加请求拦截器
   instance.interceptors.request.use(
     function (config: any) {
+      // 在发送请求之前做些什么
       const { loading = true } = config;
       console.log("config:", config);
-      // 在发送请求之前做些什么
       config.headers.Authorization =
         "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NiwiZW1haWwiOiJ6aGlxaWFuZ3NoYW5nQDkxamt5cy5jb20iLCJpYXQiOjE2NDE0NDAzMjR9.vLJPVB2IEh7gN6ClGAKaPrlkotsCR4ncmRnEXzGeZVA";
       if (loading) addLoading();
@@ -58,20 +59,26 @@ export const createAxiosByinterceptors = (
   // 添加响应拦截器
   instance.interceptors.response.use(
     function (response) {
+      // 对响应数据做点什么
       console.log("response:", response);
       const { loading = true } = response.config;
       if (loading) cancelLoading();
-      // 对响应数据做点什么
       const { code, data, message } = response.data;
-      if (code === 200) return data;
-      else if (code === 401) {
-        jumpLogin();
+      // config设置responseType为blob 处理文件下载
+      if (response.data instanceof Blob) {
+        return downloadFile(response);
       } else {
-        Message.error(message);
-        return Promise.reject(response.data);
+        if (code === 200) return data;
+        else if (code === 401) {
+          jumpLogin();
+        } else {
+          Message.error(message);
+          return Promise.reject(response.data);
+        }
       }
     },
     function (error) {
+      // 对响应错误做点什么
       console.log("error-response:", error.response);
       console.log("error-config:", error.config);
       console.log("error-request:", error.request);
@@ -83,8 +90,6 @@ export const createAxiosByinterceptors = (
         }
       }
       Message.error(error?.response?.data?.message || "服务端异常");
-
-      // 对响应错误做点什么
       return Promise.reject(error);
     }
   );
