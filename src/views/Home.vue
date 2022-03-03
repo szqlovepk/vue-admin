@@ -2,21 +2,27 @@
   <div class="home__container">
     <el-row class="card__first">
       <el-col :span="24">
-        <el-card class="box-card">
-          <Bar width="100%" height="500px" title="柱状图" />
-        </el-card>
+        <div @click="$router.push('/home/bar/100%/80%')">
+          <el-card class="box-card">
+            <Bar width="100%" height="500px" title="柱状图" />
+          </el-card>
+        </div>
       </el-col>
     </el-row>
     <el-row :gutter="10">
       <el-col :xs="24" :sm="24" :md="12" :lg="12" :xl="12" class="card__second">
-        <el-card class="box-card">
-          <Pie width="100%" height="300px" title="饼图" />
-        </el-card>
+        <div @click="$router.push('/home/pie/100%/80%')">
+          <el-card class="box-card">
+            <Pie width="100%" height="300px" title="饼图" />
+          </el-card>
+        </div>
       </el-col>
       <el-col :xs="24" :sm="24" :md="12" :lg="12" :xl="12" class="card__second">
-        <el-card class="box-card">
-          <ELine width="100%" height="300px" title="折线图" />
-        </el-card>
+        <div @click="$router.push('/home/line/100%/80%')">
+          <el-card class="box-card">
+            <ELine width="100%" height="300px" title="折线图" />
+          </el-card>
+        </div>
       </el-col>
     </el-row>
   </div>
@@ -67,9 +73,11 @@ export default class Home extends Vue {
 .home__container {
   .card__first {
     margin-bottom: 10px;
+    cursor: pointer;
   }
   .card__second {
     margin-bottom: 10px;
+    cursor: pointer;
   }
 }
 </style>

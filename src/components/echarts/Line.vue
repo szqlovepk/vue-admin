@@ -5,8 +5,16 @@
 <script>
 export default {
   props: {
-    width: String,
-    height: String,
+    width: {
+      type: String,
+      required: true,
+      default: "100%",
+    },
+    height: {
+      type: String,
+      required: true,
+      default: "100%",
+    },
     title: {
       type: String,
       required: false,

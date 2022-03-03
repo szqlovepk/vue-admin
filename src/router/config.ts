@@ -25,6 +25,7 @@ export interface IBaseRouter {
   meta?: IMeta;
   hidden?: boolean; // (默认 false)当设置 true 的时候该路由不会在侧边栏出现 如401，login等页面，或者如一些子页面编辑页面/edit/1
   component?: Component; // 路由渲染的组件页面
+  props?: boolean; // 当 props 设置为 true 时，route.params 将被设置为组件的 props。
 }
 
 const routes: Array<IBaseRouter> = [
@@ -51,6 +52,36 @@ const routes: Array<IBaseRouter> = [
         meta: {
           title: "首页",
           breadcrumb: false,
+        },
+      },
+      {
+        path: "bar/:width/:height",
+        name: "bar",
+        props: true,
+        hidden: true,
+        component: () => import("@/components/echarts/Bar.vue"),
+        meta: {
+          title: "柱状图",
+        },
+      },
+      {
+        path: "pie/:width/:height",
+        name: "pie",
+        props: true,
+        hidden: true,
+        component: () => import("@/components/echarts/Pie.vue"),
+        meta: {
+          title: "饼图",
+        },
+      },
+      {
+        path: "line/:width/:height",
+        name: "line",
+        props: true,
+        hidden: true,
+        component: () => import("@/components/echarts/Line.vue"),
+        meta: {
+          title: "折线图",
         },
       },
     ],

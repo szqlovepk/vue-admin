@@ -1,5 +1,5 @@
 module.exports = {
   devServer: {
-    disableHostCheck: true,
+    disableHostCheck: true, // 关闭host检查
   },
 };
