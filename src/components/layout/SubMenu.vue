@@ -46,12 +46,10 @@ export default class SubMenu extends Vue {
   }
 
   private resolvePath() {
-    //todo: 优化单个菜单又同时有子页面的情况
-    // 如果子路由正好是一个隐藏了的并且有重定向配置 就会默认将重定向的路由作为根路由显示在侧边栏中
+    // 如果该路由有重定向配置&子路由都是隐藏了的 就会默认将重定向的路由作为根路由显示在侧边栏中
     if (
       this.menu.redirect &&
-      this.menu?.children?.length === 1 &&
-      this.menu?.children?.[0].hidden
+      !this.menu.children.some((v: IBaseRouter) => !v.hidden)
     )
       return this.menu.redirect;
     else return path.resolve(this.basePath, this.menu.path);

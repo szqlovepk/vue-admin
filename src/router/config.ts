@@ -48,9 +48,10 @@ const routes: Array<IBaseRouter> = [
         name: "index",
         hidden: true,
         component: () => import("../views/Home.vue"),
-        // meta: {
-        //   title: "首页", // 不需要配置 否则面包屑会展示
-        // },
+        meta: {
+          title: "首页",
+          breadcrumb: false,
+        },
       },
     ],
   },
