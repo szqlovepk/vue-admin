@@ -52,7 +52,6 @@ const routes: Array<IBaseRouter> = [
         meta: {
           title: "首页",
           breadcrumb: false,
-          activeMenu: "/home/index",
         },
       },
       {
@@ -162,6 +161,7 @@ const routes: Array<IBaseRouter> = [
     path: "/error",
     name: "error",
     component: Layout,
+    redirect: "/error/404",
     meta: {
       title: "错误页面",
       icon: "el-icon-warning-outline",
@@ -278,6 +278,47 @@ const routes: Array<IBaseRouter> = [
         component: () => import("../views/router/Sub2.vue"),
         meta: {
           title: "sub2",
+        },
+      },
+    ],
+  },
+  {
+    path: "/icon",
+    name: "icon",
+    component: Layout,
+    redirect: "/icon/iconfont",
+    meta: {
+      title: "图标",
+      icon: "el-icon-s-flag",
+    },
+    children: [
+      {
+        path: "iconfont",
+        name: "iconfont",
+        component: () => import("../views/icon/IconFont.vue"),
+        hidden: true,
+        meta: {
+          title: "阿里图库",
+        },
+      },
+    ],
+  },
+  {
+    path: "/component",
+    name: "component",
+    component: Layout,
+    redirect: "/component/editor",
+    meta: {
+      title: "组件",
+      icon: "el-icon-s-opportunity",
+    },
+    children: [
+      {
+        path: "editor",
+        name: "editor",
+        component: () => import("../views/component/Editor.vue"),
+        meta: {
+          title: "富文本",
         },
       },
     ],

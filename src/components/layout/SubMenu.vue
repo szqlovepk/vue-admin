@@ -7,7 +7,7 @@
       <template slot="title">
         <i :class="icon" />
         {{ getMenuTitle(menu) }}
-        <!-- {{ resolvePath() }} -->
+        {{ resolvePath() }}
       </template>
       <SubMenu
         v-for="subMenu in menu.children"
@@ -20,7 +20,7 @@
       <el-menu-item :index="resolvePath()">
         <i :class="icon" />
         {{ getMenuTitle(menu) }}
-        <!-- {{ resolvePath() }} -->
+        {{ resolvePath() }}
       </el-menu-item>
     </router-link>
   </div>
