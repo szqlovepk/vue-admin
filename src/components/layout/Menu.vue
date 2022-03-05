@@ -1,9 +1,5 @@
 <template>
-  <el-menu
-    :default-openeds="defaultOpen"
-    :default-active="activeMenu"
-    style="height: 100%"
-  >
+  <el-menu :default-active="activeMenu" style="height: 100%">
     <SubMenu v-for="menu in routes" :key="menu.path" :menu="menu" />
   </el-menu>
 </template>
@@ -17,11 +13,12 @@ import routes from "@/router/config";
   components: { SubMenu },
 })
 export default class Menu extends Vue {
-  private defaultOpen = [];
   private routes = routes;
 
   private get activeMenu() {
-    return this.$route.path;
+    console.log("route:", this.$route);
+    const activeMenu = this.$route?.meta?.activeMenu || this.$route.path;
+    return activeMenu;
   }
 }
 </script>

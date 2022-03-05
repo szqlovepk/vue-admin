@@ -52,6 +52,7 @@ const routes: Array<IBaseRouter> = [
         meta: {
           title: "首页",
           breadcrumb: false,
+          activeMenu: "/home/index",
         },
       },
       {
@@ -62,6 +63,7 @@ const routes: Array<IBaseRouter> = [
         component: () => import("@/components/echarts/Bar.vue"),
         meta: {
           title: "柱状图",
+          activeMenu: "/home/index",
         },
       },
       {
@@ -72,6 +74,7 @@ const routes: Array<IBaseRouter> = [
         component: () => import("@/components/echarts/Pie.vue"),
         meta: {
           title: "饼图",
+          activeMenu: "/home/index",
         },
       },
       {
@@ -82,6 +85,7 @@ const routes: Array<IBaseRouter> = [
         component: () => import("@/components/echarts/Line.vue"),
         meta: {
           title: "折线图",
+          activeMenu: "/home/index",
         },
       },
     ],

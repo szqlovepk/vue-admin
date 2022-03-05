@@ -47,17 +47,9 @@ import Menu from "./Menu.vue";
   components: { Header, Menu },
 })
 export default class Layout extends Vue {
-  private mounted() {
-    console.log(this.$route);
-  }
-
   private get showBreadcrumb() {
     return this.$route?.meta?.breadcrumbAll !== false;
   }
-
-  // private getPath(route: IBaseRouter) {
-  //   return route?.meta?.breadcrumbTo === false ? null : route?.path;
-  // }
 
   private get matchedRoutes() {
     return this.$route.matched?.filter(
