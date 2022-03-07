@@ -35,6 +35,12 @@ const routes: Array<IBaseRouter> = [
     hidden: true,
   },
   {
+    path: "/login",
+    name: "login",
+    hidden: true,
+    component: () => import("../views/Login.vue"),
+  },
+  {
     path: "/home",
     name: "home",
     component: Layout,
