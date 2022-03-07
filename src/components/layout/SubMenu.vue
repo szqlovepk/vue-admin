@@ -7,7 +7,7 @@
       <template slot="title">
         <i :class="icon" />
         {{ getMenuTitle(menu) }}
-        {{ resolvePath() }}
+        <!-- {{ resolvePath() }} -->
       </template>
       <SubMenu
         v-for="subMenu in menu.children"
@@ -20,7 +20,7 @@
       <el-menu-item :index="resolvePath()">
         <i :class="icon" />
         {{ getMenuTitle(menu) }}
-        {{ resolvePath() }}
+        <!-- {{ resolvePath() }} -->
       </el-menu-item>
     </router-link>
   </div>
@@ -46,7 +46,7 @@ export default class SubMenu extends Vue {
   }
 
   private resolvePath() {
-    // 如果该路由有重定向配置&子路由都是隐藏了的 就会默认将重定向的路由作为根路由显示在侧边栏中
+    // 如果该路由有重定向配置&子路由都是隐藏了的 就会默认将重定向的路由作为菜单项index显示在侧边栏中
     if (
       this.menu.redirect &&
       !this.menu.children.some((v: IBaseRouter) => !v.hidden)

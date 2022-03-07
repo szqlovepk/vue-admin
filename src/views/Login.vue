@@ -41,16 +41,20 @@ export default class Login extends Vue {
     password: [{ required: true, message: "请输入密码", trigger: "change" }],
   };
 
+  mounted() {
+    console.log("route:", this.$route);
+  }
+
   onSubmit() {
     this.formRef.validate((valid: boolean) => {
       if (valid) {
         const { username } = this.form;
         if (username === "admin") {
           this.$message.success("admin");
-          this.$router.push("/");
+          this.handleTo();
         } else if (username === "visitor") {
-          this.$router.push("/");
           this.$message.success("visitor");
+          this.handleTo();
         } else {
           this.$message.warning("请检查账号密码！");
         }
@@ -58,6 +62,12 @@ export default class Login extends Vue {
         return false;
       }
     });
+  }
+
+  handleTo() {
+    const redirect = this?.$route?.query?.redirect as string;
+    if (redirect) this.$router.push(redirect);
+    else this.$router.push("/");
   }
 }
 </script>

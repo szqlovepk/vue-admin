@@ -1,7 +1,13 @@
 <template>
   <el-header class="dashboard__header">
     <img class="dashboard__logo" src="@/assets/logo.png" />
-    <el-avatar :size="30" :src="avatar" />
+    <el-dropdown @command="handleCmd">
+      <el-avatar :size="30" :src="avatar" />
+      <el-dropdown-menu slot="dropdown" trigger="click">
+        <el-dropdown-item command="home">首页</el-dropdown-item>
+        <el-dropdown-item command="logout">退出登录</el-dropdown-item>
+      </el-dropdown-menu>
+    </el-dropdown>
   </el-header>
 </template>
 
@@ -13,6 +19,16 @@ import { Vue, Component } from "vue-property-decorator";
 export default class Header extends Vue {
   private avatar =
     "https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png";
+
+  handleCmd(command: string) {
+    if (command === "home") this.$router.push("/home");
+    else if (command === "logout") {
+      // 注销
+      this.$router.push(
+        `/login?redirect=${encodeURIComponent(this.$route.fullPath)}`
+      );
+    }
+  }
 }
 </script>
 
