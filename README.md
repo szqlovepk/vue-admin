@@ -21,3 +21,4 @@
 - [echarts](https://echarts.apache.org/zh/index.html) 一个基于 JavaScript 的开源可视化图表库
 - [vue-class-component](https://github.com/vuejs/vue-class-component) vue 对 typescript 支持的装饰器(库)
 - [vue-property-decorator](https://github.com/kaorun343/vue-property-decorator) vue-property-decorator 深度依赖了 vue-class-component 拓展出了很多操作符。正常开发的时候你只需要使用 vue-property-decorator 中提供的操作符即可
+- [js-cookie](https://github.com/js-cookie/js-cookie) 一个用于处理 cookie 的简单、轻量级 JavaScript API
