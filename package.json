@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@types/echarts": "^4.9.13",
+    "@types/js-cookie": "^3.0.1",
     "@types/lodash": "^4.14.178",
     "animate.css": "^4.1.1",
     "axios": "^0.25.0",
@@ -17,6 +18,7 @@
     "dayjs": "^1.10.5",
     "echarts": "^5.3.0",
     "element-ui": "^2.15.1",
+    "js-cookie": "^3.0.1",
     "vue": "^2.6.11",
     "vue-class-component": "^7.2.3",
     "vue-property-decorator": "^9.1.2",

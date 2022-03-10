@@ -1,9 +1,9 @@
 import axios, { AxiosInstance, AxiosRequestConfig } from "axios";
 import { Message } from "element-ui";
-import { jumpLogin } from "@/utils";
+import { jumpLogin, downloadFile } from "@/utils";
 import { Loading } from "element-ui";
 import { ElLoadingComponent } from "element-ui/types/loading";
-import { downloadFile } from "@/utils";
+import vm from "@/main";
 
 let loadingInstance: ElLoadingComponent | null = null;
 let requestNum = 0;
@@ -29,13 +29,8 @@ export const createAxiosByinterceptors = (
   config?: AxiosRequestConfig
 ): AxiosInstance => {
   const instance = axios.create({
-    //baseURL: "https://some-domain.com/api/",
     timeout: 1000,
     withCredentials: true,
-    // headers: {
-    //   Authorization:
-    //     "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NiwiZW1haWwiOiJ6aGlxaWFuZ3NoYW5nQDkxamt5cy5jb20iLCJpYXQiOjE2NDE0NDAzMjR9.vLJPVB2IEh7gN6ClGAKaPrlkotsCR4ncmRnEXzGeZVA",
-    // },
     ...config,
   });
 
@@ -45,8 +40,7 @@ export const createAxiosByinterceptors = (
       // 在发送请求之前做些什么
       const { loading = true } = config;
       console.log("config:", config);
-      config.headers.Authorization =
-        "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NiwiZW1haWwiOiJ6aGlxaWFuZ3NoYW5nQDkxamt5cy5jb20iLCJpYXQiOjE2NDE0NDAzMjR9.vLJPVB2IEh7gN6ClGAKaPrlkotsCR4ncmRnEXzGeZVA";
+      // config.headers.Authorization = vm.$Cookies.get("vue_admin_token");
       if (loading) addLoading();
       return config;
     },

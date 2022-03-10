@@ -51,9 +51,11 @@ export default class Login extends Vue {
         const { username } = this.form;
         if (username === "admin") {
           this.$message.success("admin");
+          this.$Cookies.set("vue_admin_token", "admin", { expires: 1 });
           this.handleTo();
         } else if (username === "visitor") {
           this.$message.success("visitor");
+          this.$Cookies.set("vue_admin_token", "visitor", { expires: 1 });
           this.handleTo();
         } else {
           this.$message.warning("请检查账号密码！");

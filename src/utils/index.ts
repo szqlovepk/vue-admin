@@ -1,10 +1,20 @@
 import { Message } from "element-ui";
 import { AxiosResponse } from "axios";
+import vm from "@/main";
 
+/**
+ *   跳转登录
+ */
 export const jumpLogin = () => {
-  // 跳转登录
+  vm.$Cookies.remove("vue_admin_token");
+  vm.$router.push(`/login?redirect=${encodeURIComponent(vm.$route.fullPath)}`);
 };
 
+/**
+ * 下载文件
+ * @param response
+ * @returns
+ */
 export const downloadFile = (response: AxiosResponse) => {
   console.log("response.data.type:", response.data.type);
   return new Promise((resolve, reject) => {

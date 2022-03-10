@@ -24,6 +24,7 @@ export default class Header extends Vue {
     if (command === "home") this.$router.push("/home");
     else if (command === "logout") {
       // 注销
+      this.$Cookies.remove("vue_admin_token");
       this.$router.push(
         `/login?redirect=${encodeURIComponent(this.$route.fullPath)}`
       );
