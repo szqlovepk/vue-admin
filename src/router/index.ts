@@ -2,6 +2,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import routes from "./config";
 import Cookies from "js-cookie";
+import authModule from "@/store/modules/auth";
 // import Home from "../views/Home.vue";
 
 Vue.use(VueRouter);
@@ -17,7 +18,7 @@ const router = new VueRouter({
   },
 });
 
-router.beforeEach((to, from, next) => {
+router.beforeEach(async (to, from, next) => {
   console.log("to:", to);
   console.log("form:", from);
   // set page title
@@ -28,7 +29,13 @@ router.beforeEach((to, from, next) => {
     if (to?.path === "/login") {
       next();
     } else {
-      next();
+      if (!authModule.auths) {
+        next();
+        await authModule.getAuth();
+        console.log("auths:", authModule.auths);
+      } else {
+        next();
+      }
     }
   } else {
     if (to?.path === "/login") {
