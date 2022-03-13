@@ -1,6 +1,8 @@
 import { Message } from "element-ui";
 import { AxiosResponse } from "axios";
 import vm from "@/main";
+import { IBaseRouter } from "@/router/config";
+import authModule from "@/store/modules/auth";
 
 /**
  *   跳转登录
@@ -45,4 +47,38 @@ export const downloadFile = (response: AxiosResponse) => {
     };
     fileReader.readAsText(response.data);
   });
+};
+
+/**
+ * 判断路由有无权限  路由无auth配置时默认都有
+ * @param route
+ * @param auths
+ * @returns
+ */
+export const hasAuth = (route: IBaseRouter, auths: Array<string> | null) => {
+  if (route?.meta?.auth) {
+    return auths?.includes(route?.meta?.auth);
+  } else {
+    return true;
+  }
+};
+
+/**
+ * 递归过滤出有权限的路由
+ * @param routes
+ * @returns
+ */
+export const filterAuthRoutes = (routes: Array<IBaseRouter>) => {
+  const authRoutes: Array<IBaseRouter> = [];
+  const auths = authModule.auths;
+  routes.forEach((route) => {
+    if (hasAuth(route, auths)) {
+      let children = undefined;
+      if (route?.children) {
+        children = filterAuthRoutes(route.children);
+      }
+      authRoutes.push({ ...route, children });
+    }
+  });
+  return authRoutes;
 };

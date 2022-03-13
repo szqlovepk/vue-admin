@@ -15,6 +15,7 @@ interface IMeta {
   breadcrumb?: boolean; // (默认 true)如果设置为false，该路由则不会在breadcrumb面包屑中显示
   breadcrumbTo?: boolean; // (默认 true)该路由对应的面包屑是否可以点击
   activeMenu?: string; // 指定要高亮的左侧边栏的菜单 在跳转菜单的子页面但是想高亮左侧边栏时非常有用
+  auth?: string; // 权限点唯一标识key 不配置时默认都可见 配置时权限接口返回的数组中需包含该key才会展示
 }
 
 export interface IBaseRouter {
@@ -58,6 +59,7 @@ const routes: Array<IBaseRouter> = [
         meta: {
           title: "首页",
           breadcrumb: false,
+          auth: "homeshow",
         },
       },
       {

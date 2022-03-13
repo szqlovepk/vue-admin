@@ -13,6 +13,7 @@
 
 <script lang="ts">
 import { Vue, Component } from "vue-property-decorator";
+import authModule from "@/store/modules/auth";
 @Component({
   name: "Header",
 })
@@ -24,6 +25,7 @@ export default class Header extends Vue {
     if (command === "home") this.$router.push("/home");
     else if (command === "logout") {
       // 注销
+      authModule.clearAuth();
       this.$Cookies.remove("vue_admin_token");
       this.$router.push(
         `/login?redirect=${encodeURIComponent(this.$route.fullPath)}`

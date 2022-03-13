@@ -13,7 +13,7 @@ class Auth extends VuexModule {
   auths: Array<string> | null = null;
 
   @Mutation
-  SET_AUTHS(auths: Array<string>) {
+  SET_AUTHS(auths: Array<string> | null) {
     this.auths = auths;
   }
 
@@ -22,13 +22,19 @@ class Auth extends VuexModule {
     const auths: string[] = await new Promise((resolve) => {
       setTimeout(() => {
         if (Cookies.get("vue_admin_token") === "admin") {
-          resolve(["admin"]);
+          resolve(["homeshow"]);
         } else {
           resolve(["visitor"]);
         }
-      }, 7000);
+      }, 1000);
     });
     this.SET_AUTHS(auths);
+    return auths;
+  }
+
+  @Action
+  clearAuth() {
+    this.SET_AUTHS(null);
   }
 }
 
