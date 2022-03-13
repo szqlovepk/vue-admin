@@ -2,7 +2,11 @@
   <el-header class="dashboard__header">
     <img class="dashboard__logo" src="@/assets/logo.png" />
     <el-dropdown @command="handleCmd">
-      <el-avatar :size="30" :src="avatar" />
+      <div class="dashboard__info">
+        <span class="name">你好 {{ username }}</span>
+        <el-avatar :size="30" :src="avatar" />
+      </div>
+
       <el-dropdown-menu slot="dropdown" trigger="click">
         <el-dropdown-item command="home">首页</el-dropdown-item>
         <el-dropdown-item command="logout">退出登录</el-dropdown-item>
@@ -18,8 +22,11 @@ import authModule from "@/store/modules/auth";
   name: "Header",
 })
 export default class Header extends Vue {
-  private avatar =
-    "https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png";
+  private avatar = "https://joeschmoe.io/api/v1/random";
+
+  get username() {
+    return this.$Cookies.get("vue_admin_token");
+  }
 
   handleCmd(command: string) {
     if (command === "home") this.$router.push("/home");
@@ -46,5 +53,13 @@ export default class Header extends Vue {
 .dashboard__logo {
   width: 60px;
   height: 60px;
+}
+.dashboard__info {
+  display: flex;
+  align-items: center;
+  .name {
+    color: white;
+    margin-right: 10px;
+  }
 }
 </style>
