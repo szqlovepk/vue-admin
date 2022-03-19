@@ -4,7 +4,7 @@
       <el-col :span="14">
         <h3>鼠标点击查看效果</h3>
         <h3>fade 淡入淡出</h3>
-        <div style="display: flex">
+        <div style="display: flex; flex-wrap: wrap">
           <transition name="el-fade-in-linear">
             <div @click="trans('show1')" v-show="show1" class="transition-box">
               .el-fade-in-linear
@@ -18,7 +18,7 @@
         </div>
 
         <h3>zoom 缩放</h3>
-        <div style="display: flex">
+        <div style="display: flex; flex-wrap: wrap">
           <transition name="el-zoom-in-center">
             <div @click="trans('show3')" v-show="show3" class="transition-box">
               .el-zoom-in-center

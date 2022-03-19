@@ -98,6 +98,28 @@ const routes: Array<IBaseRouter> = [
     ],
   },
   {
+    path: "/icon",
+    name: "icon",
+    component: Layout,
+    redirect: "/icon/iconfont",
+    meta: {
+      title: "图标",
+      icon: "el-icon-s-flag",
+    },
+    children: [
+      {
+        path: "iconfont",
+        name: "iconfont",
+        component: () => import("../views/icon/IconFont.vue"),
+        hidden: true,
+        meta: {
+          title: "阿里图库",
+          breadcrumb: false,
+        },
+      },
+    ],
+  },
+  {
     path: "/table",
     name: "table",
     component: Layout,
@@ -286,27 +308,6 @@ const routes: Array<IBaseRouter> = [
         component: () => import("../views/router/Sub2.vue"),
         meta: {
           title: "sub2",
-        },
-      },
-    ],
-  },
-  {
-    path: "/icon",
-    name: "icon",
-    component: Layout,
-    redirect: "/icon/iconfont",
-    meta: {
-      title: "图标",
-      icon: "el-icon-s-flag",
-    },
-    children: [
-      {
-        path: "iconfont",
-        name: "iconfont",
-        component: () => import("../views/icon/IconFont.vue"),
-        hidden: true,
-        meta: {
-          title: "阿里图库",
         },
       },
     ],
