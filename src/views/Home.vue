@@ -30,14 +30,12 @@
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-import HelloWorld from "@/components/HelloWorld.vue"; // @ is an alias to /src
-// import { appList, pageMenus, exportGoods } from "@/api";
+// import { appList, pageMenus, exportGoods } from "@/api";  // @ is an alias to /src
 import { Bar, Pie, ELine } from "@/components";
 
 @Component({
   name: "Home",
   components: {
-    HelloWorld,
     Bar,
     Pie,
     ELine,
