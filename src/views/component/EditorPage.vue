@@ -1,16 +1,22 @@
 <template>
-  <el-row>
-    <el-col :span="12">
-      <Editor v-model="text1" />
-      <p>text1:</p>
-      {{ text1 }}
-    </el-col>
-    <el-col :span="12">
-      <Editor :value="text2" @input="handleInput" />
-      <p>text2:</p>
-      {{ text2 }}
-    </el-col>
-  </el-row>
+  <div>
+    <span>禁用编辑器:</span>
+    <el-switch v-model="disabled"> </el-switch>
+    <el-row>
+      <el-col :span="12">
+        <p>v-model绑定</p>
+        <Editor v-model="text1" :disabled="disabled" />
+        <p>text1:</p>
+        {{ text1 }}
+      </el-col>
+      <el-col :span="12">
+        <p>value 和 @input绑定</p>
+        <Editor :value="text2" @input="handleInput" :disabled="disabled" />
+        <p>text2:</p>
+        {{ text2 }}
+      </el-col>
+    </el-row>
+  </div>
 </template>
 
 <script lang="ts">
@@ -23,6 +29,7 @@ import { Editor } from "@/components";
 export default class EditorPage extends Vue {
   private text1 = "defalutText1";
   private text2 = "defaultText2";
+  private disabled = true;
 
   mounted() {
     setTimeout(() => {

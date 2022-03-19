@@ -14,6 +14,9 @@ export default class Editor extends Vue {
   @Prop()
   value!: string;
 
+  @Prop()
+  disabled!: boolean;
+
   @Emit("input")
   handle(newHtml: string) {
     return newHtml;
@@ -22,6 +25,11 @@ export default class Editor extends Vue {
   @Watch("value")
   watchValue(val: string) {
     this.editor.txt.html(val); // 重新设置编辑器内容
+  }
+
+  @Watch("disabled")
+  wathcDisabled(value: boolean) {
+    value ? this.editor.disable() : this.editor.enable();
   }
 
   private editor: any = null;
@@ -36,6 +44,7 @@ export default class Editor extends Vue {
     // 创建编辑器
     editor.create();
     editor.txt.html(this.value); // 重新设置编辑器内容
+    this.value ? editor.disable() : editor.enable();
     this.editor = editor;
   }
 
@@ -47,4 +56,8 @@ export default class Editor extends Vue {
 }
 </script>
 
-<style lang="less" scoped></style>
+<style lang="less" scoped>
+/deep/ .w-e-content-mantle {
+  background: #f1f3f4;
+}
+</style>
