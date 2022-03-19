@@ -325,7 +325,7 @@ const routes: Array<IBaseRouter> = [
       {
         path: "editor",
         name: "editor",
-        component: () => import("../views/component/Editor.vue"),
+        component: () => import("../views/component/EditorPage.vue"),
         meta: {
           title: "富文本",
         },
