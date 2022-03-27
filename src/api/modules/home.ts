@@ -1,7 +1,9 @@
 import { createAxiosByinterceptors } from "@/api/request";
+import url from "@/constant/url";
+const vueAppEnv = process.env.VUE_APP_ENV;
 
 const request = createAxiosByinterceptors({
-  baseURL: "http://localhost:7009",
+  baseURL: (url as any)[vueAppEnv as any].home,
 });
 
 export const appList = (params: any): Promise<any> =>

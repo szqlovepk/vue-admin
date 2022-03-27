@@ -120,6 +120,28 @@ const routes: Array<IBaseRouter> = [
     ],
   },
   {
+    path: "/mode",
+    name: "mode",
+    component: Layout,
+    redirect: "/mode/modeEnv",
+    meta: {
+      title: "模式和环境变量",
+      icon: "el-icon-s-check",
+    },
+    children: [
+      {
+        path: "modeEnv",
+        name: "modeEnv",
+        component: () => import("../views/mode/index.vue"),
+        hidden: true,
+        meta: {
+          title: "环境变量",
+          breadcrumb: false,
+        },
+      },
+    ],
+  },
+  {
     path: "/table",
     name: "table",
     component: Layout,

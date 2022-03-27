@@ -30,7 +30,7 @@
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-// import { appList, pageMenus, exportGoods } from "@/api";  // @ is an alias to /src
+// import { appList, pageMenus, exportGoods } from "@/api"; // @ is an alias to /src
 import { Bar, Pie, ELine } from "@/components";
 
 @Component({
