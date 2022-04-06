@@ -24,7 +24,6 @@ export default class Editor extends Vue {
 
   @Watch("value")
   watchValue(val: string) {
-    debugger;
     // 解决光标跳动到最后
     if (this.value !== this.editor.txt.html()) {
       this.editor.txt.html(val);

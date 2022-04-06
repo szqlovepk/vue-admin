@@ -126,7 +126,7 @@ const routes: Array<IBaseRouter> = [
     redirect: "/mode/modeEnv",
     meta: {
       title: "模式和环境变量",
-      icon: "el-icon-s-check",
+      icon: "el-icon-s-help",
     },
     children: [
       {
@@ -137,6 +137,34 @@ const routes: Array<IBaseRouter> = [
         meta: {
           title: "环境变量",
           breadcrumb: false,
+        },
+      },
+    ],
+  },
+  {
+    path: "/auth",
+    name: "auth",
+    component: Layout,
+    redirect: "/auth/authPage",
+    meta: {
+      title: "权限",
+      icon: "el-icon-s-check",
+    },
+    children: [
+      {
+        path: "authPage",
+        name: "authPage",
+        component: () => import("../views/auth/authPage.vue"),
+        meta: {
+          title: "权限演示菜单",
+        },
+      },
+      {
+        path: "authDirective",
+        name: "authDirective",
+        component: () => import("../views/auth/authDirective.vue"),
+        meta: {
+          title: "权限演示指令",
         },
       },
     ],
