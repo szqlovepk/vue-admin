@@ -104,6 +104,7 @@ export default class IconFont extends Vue {
     { name: "店铺", class: "icon-admin-dianpu" },
     { name: "反馈", class: "icon-admin-fankui" },
     { name: "选中01", class: "icon-admin-fangxingxuanzhong" },
+    { name: "github", class: "icon-admin-github" },
   ];
 }
 </script>

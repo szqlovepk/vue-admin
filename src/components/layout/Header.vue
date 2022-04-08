@@ -1,17 +1,17 @@
 <template>
   <el-header class="dashboard__header">
     <img class="dashboard__logo" src="@/assets/logo.png" />
-    <el-dropdown @command="handleCmd">
-      <div class="dashboard__info">
+    <div class="dashboard__info">
+      <i class="iconfont icon-admin-github font" @click="handleGithub" />
+      <el-dropdown @command="handleCmd">
         <span class="name">你好 {{ username }}</span>
-        <el-avatar :size="30" :src="avatar" />
-      </div>
-
-      <el-dropdown-menu slot="dropdown" trigger="click">
-        <el-dropdown-item command="home">首页</el-dropdown-item>
-        <el-dropdown-item command="logout">退出登录</el-dropdown-item>
-      </el-dropdown-menu>
-    </el-dropdown>
+        <el-dropdown-menu slot="dropdown" trigger="click">
+          <el-dropdown-item command="home">首页</el-dropdown-item>
+          <el-dropdown-item command="logout">退出登录</el-dropdown-item>
+        </el-dropdown-menu>
+      </el-dropdown>
+      <el-avatar :size="30" :src="avatar" />
+    </div>
   </el-header>
 </template>
 
@@ -39,6 +39,10 @@ export default class Header extends Vue {
       );
     }
   }
+
+  handleGithub() {
+    window.open("https://github.com/szqlovepk/vue-admin");
+  }
 }
 </script>
 
@@ -59,7 +63,11 @@ export default class Header extends Vue {
   align-items: center;
   .name {
     color: white;
-    margin-right: 10px;
+    margin: 0 10px;
+  }
+  .font {
+    font-size: 22px;
+    cursor: pointer;
   }
 }
 </style>

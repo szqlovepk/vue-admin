@@ -1,6 +1,6 @@
 # vue-admin
 
-## a template vue app for management system(vue 后台系统解决方案)
+## a template vue app for management system(vue 中后台系统解决方案)
 
 ### 前言
 
