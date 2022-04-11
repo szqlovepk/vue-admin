@@ -22,9 +22,9 @@ class Auth extends VuexModule {
     const auths: string[] = await new Promise((resolve) => {
       setTimeout(() => {
         if (Cookies.get("vue_admin_token") === "admin") {
-          resolve(["homeshow"]);
+          resolve(["authPage", "authDirective"]);
         } else {
-          resolve(["visitor"]);
+          resolve([]);
         }
       }, 1000);
     });

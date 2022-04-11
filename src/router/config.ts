@@ -59,7 +59,6 @@ const routes: Array<IBaseRouter> = [
         meta: {
           title: "首页",
           breadcrumb: false,
-          auth: "homeshow",
         },
       },
       {
@@ -157,6 +156,7 @@ const routes: Array<IBaseRouter> = [
         component: () => import("../views/auth/authPage.vue"),
         meta: {
           title: "权限演示菜单",
+          auth: "authPage",
         },
       },
       {
