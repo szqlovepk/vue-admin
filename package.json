@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "sudo vue-cli-service serve --port 80 --open",
+    "serve": "vue-cli-service serve --port 80 --open",
     "build": "vue-cli-service build",
     "build:qa": "vue-cli-service build --mode qa",
     "build:pre": "vue-cli-service build --mode pre",
