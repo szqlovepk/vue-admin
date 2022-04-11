@@ -10,6 +10,7 @@ Vue.use(VueRouter);
 
 const createRouter = () =>
   new VueRouter({
+    mode: "hash",
     routes: routes as any,
     scrollBehavior() {
       // 由于外部容器固定了高度 实际上滚动的只有el-main容器的内容 故用js自己处理局部滚动到顶部
