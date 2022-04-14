@@ -174,6 +174,42 @@ export const exportGoods = (data: any) =>
   });
 ```
 
+### 模式和环境变量
+
+vue-admin 已默认添加常用的 development，qa，pre，prod 四种环境区分，您可根据实际业务需求增加或修改。
+
+##### 环境变量
+
+- NODE_ENV：当你运行 vue-cli-service build 命令时，无论你要部署到哪个环境，应该始终把 NODE_ENV 设置为 "production" 来获取可用于部署的应用程序
+- VUE_APP_ENV：用于区分环境的变量，常用于区分不同环境下的服务端 api 域名
+
+```
+.env.prod
+
+NODE_ENV = "production"
+VUE_APP_ENV = 'prod'
+```
+
+```
+src/consatnt/url.ts
+
+export default {
+  dev: {
+    home: "http://localhost:7009",
+  },
+  qa: {
+    home: "http://vue-admin.qa.com",
+  },
+  pre: {
+    home: "http://vue-admin.pre.com",
+  },
+  prod: {
+    home: "http://vue-admin.prod.com",
+  },
+};
+
+```
+
 ### 功能模块
 
 ##### 登录
