@@ -2,6 +2,14 @@
   "name": "vue-admin",
   "version": "0.1.0",
   "private": true,
+  "author": {
+    "name": "szqlovepk",
+    "email": "1056628965@qq.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/szqlovepk/vue-admin"
+  },
   "scripts": {
     "serve": "vue-cli-service serve --port 80 --open",
     "build": "vue-cli-service build",
