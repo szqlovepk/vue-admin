@@ -143,7 +143,7 @@ vue-admin
 ##### 权限
 
 集成了菜单路由权限和组件指令权限
-https://github.com/szqlovepk/project-photos/blob/master/imgs/vue-admin/%E6%9D%83%E9%99%90%E6%BC%94%E7%A4%BA%E6%8C%87%E4%BB%A4.png
+![image](https://github.com/szqlovepk/project-photos/blob/master/imgs/vue-admin/auth.gif)
 
 ##### 表格
 
