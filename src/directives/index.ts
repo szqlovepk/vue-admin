@@ -9,7 +9,7 @@ const directives = {
     },
   },
   auth: {
-    inserted: function (el: any, binding: any, vnode: any) {
+    inserted: function (el: any, binding: any) {
       const arg = binding?.arg;
       const auths = authModule.auths;
       if (!auths?.includes(arg as string)) {

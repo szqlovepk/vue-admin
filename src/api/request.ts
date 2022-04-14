@@ -3,7 +3,7 @@ import { Message } from "element-ui";
 import { jumpLogin, downloadFile } from "@/utils";
 import { Loading } from "element-ui";
 import { ElLoadingComponent } from "element-ui/types/loading";
-import vm from "@/main";
+// import vm from "@/main";
 
 let loadingInstance: ElLoadingComponent | null = null;
 let requestNum = 0;

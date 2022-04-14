@@ -7,7 +7,7 @@ import "element-ui/lib/theme-chalk/index.css";
 import "./index.less";
 import * as echarts from "echarts";
 import Cookies from "js-cookie";
-import myPlugin from '@/plugins';
+import myPlugin from "@/plugins";
 // import locale from "element-ui/lib/locale/lang/en";
 
 // 国际化设置
