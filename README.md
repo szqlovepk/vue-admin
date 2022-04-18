@@ -10,6 +10,34 @@
 
 > vue 作为国内前端最常用的 js 框架之一，在处理复杂交互的单页应用中对国内码农很友好，文档比较详细。对于中后台管理系统企业开发比较常用，所以利用空余时间集成了一个常用版本出来(没有 vue 基础的同学可以先学习 [vue](https://cn.vuejs.org/) 的基础知识)，可 clone 至本地进行业务快速开发
 
+### 安装运行
+
+1.使用 vue2-admin-cli 脚手架工具下载或克隆项目源码 🔥🔥
+
+```
+npm install -g vue2-admin-cli // 安装vue2-admin-cli
+# or
+yarn global add vue2-admin-cli
+
+vue2-admin-cli init <project_name> // 创建项目
+or
+git clone https://github.com/szqlovepk/vue-admin.git
+```
+
+2.yarn 安装依赖(国内建议增加淘宝镜像源，不然很慢，你懂的 😁)
+`yarn`
+
+3.启动项目
+`yarn serve`
+
+4.打包项目
+
+```
+build:qa // qa环境
+build:pre // pre环境
+build:prod // 线上生产环境
+```
+
 ### 依赖模块
 
 > 项目基于 [vue-cli4.x](https://cli.vuejs.org/zh/) 脚手架生成，主要还是列出新添加的依赖包和相关的文档
@@ -303,27 +331,9 @@ element 动画和 animate.css 动画演示，突然想起来以前做移动端 h
 
 注销时清空权限和 cookie 中的 token
 
-### 安装运行
-
-1.下载或克隆项目源码
-
-2.yarn 安装依赖(国内建议增加淘宝镜像源，不然很慢，你懂的 😁)
-`yarn`
-
-3.启动项目
-`yarn serve`
-
-4.打包项目
-
-```
-build:qa // qa环境
-build:pre // pre环境
-build:prod // 线上生产环境
-```
-
 ### 结尾
 
-该项目会不定时更新，该模板目前为 vue2.x 版本，后续会添加更多的模块，并推出 vue3 版本，增加 cli 脚手架下载
+该项目会不定时更新，该模板目前为 vue2.x 版本，后续会添加更多的模块，并推出 vue3 版本
 欢迎和感谢大家 PR~~👏👏
 若有问题，可加微信与我进行交流（szq10_04) 😁 😁
 
